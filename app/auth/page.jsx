@@ -1,27 +1,55 @@
 "use client"
 
-import React, { useState, useCallback } from 'react';
+import axios from 'axios';
+import { useCallback, useState } from 'react';
+import { NextPageContext } from 'next';
+import { getSession, signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
-import Input from 'app/components/Input';
+
+import Input from '../components/Input';
+
 
 const Auth = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [variant, setVariant] = useState('login');
-
+  const router = useRouter();
   const toggleVariant = useCallback(() => {
     setVariant((currentVariant) => (currentVariant === 'login' ? 'register' : 'login'));
   }, []);
 
   const login = useCallback(async () => {
-    // Login logic
-  }, [email, password]);
+    try {
+        await signIn('credentials', {
+          email,
+          password,
+          redirect: false,
+          callbackUrl: '/'
+        });
+  
+        router.push('/profiles');
+      } catch (error) {
+        console.log(error);
+      }
+    }, [email, password]);
 
-  const register = useCallback(async () => {
-    // Registration logic
-  }, [email, name, password]);
+    const register = useCallback(async () => {
+        try {
+          await axios.post('/api/register', {
+            email,
+            name,
+            password
+          });
+    
+          login();
+        } catch (error) {
+            console.log(error);
+        }
+    }, [email, name, password, login]);
+    
 
   return (
     <div className="flex items-center justify-center h-screen bg-gradient-to-br from-gray-900 to-gray-800">
