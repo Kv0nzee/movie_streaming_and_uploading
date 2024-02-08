@@ -34,7 +34,7 @@ const Auth = () => {
       } catch (error) {
         console.log(error);
       }
-    }, [email, password]);
+    }, [email, password, router]);
 
     const register = useCallback(async () => {
         try {
@@ -88,13 +88,13 @@ const Auth = () => {
         >
           {variant === 'login' ? 'Sign in' : 'Sign up'}
         </button>
-        <div className="flex justify-center mt-6">
-          <button className="flex items-center justify-center w-10 h-10 mr-4 text-gray-700 bg-white rounded-full shadow-lg hover:bg-gray-100 focus:outline-none">
-            <FcGoogle size={24} />
-          </button>
-          <button className="flex items-center justify-center w-10 h-10 text-gray-700 bg-white rounded-full shadow-lg hover:bg-gray-100 focus:outline-none">
-            <FaGithub size={24} />
-          </button>
+        <div className="flex flex-row items-center justify-center gap-4 mt-8">
+              <div onClick={() => signIn('google', { callbackUrl: '/profiles' })} className="flex items-center justify-center w-10 h-10 transition bg-white rounded-full cursor-pointer hover:opacity-80">
+                <FcGoogle size={32} />
+              </div>
+              <div onClick={() => signIn('github', { callbackUrl: '/profiles' })} className="flex items-center justify-center w-10 h-10 transition bg-white rounded-full cursor-pointer hover:opacity-80">
+                <FaGithub size={32} />
+              </div>
         </div>
         <p className="mt-8 text-sm text-center text-gray-600">
           {variant === 'login' ? 'New to our platform?' : 'Already have an account?'}
