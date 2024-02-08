@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/lib/*": [
-        "lib/*"
-      ]
+      "@components/*": ["components/*"],
+      "@styles/*": ["styles/*"],
+      "@utils/*": ["utils/*"]
+      // Add more aliases as needed
     }
-  }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

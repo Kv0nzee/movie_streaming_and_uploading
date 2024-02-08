@@ -6,7 +6,7 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { compare } from 'bcrypt';
 import prisma from '../../../app/lib/prismadb';
 
-const AuthOptions = {
+export const AuthOptions = {
     providers: [
         GithubProvider({
           clientId: process.env.GITHUB_ID || '',
