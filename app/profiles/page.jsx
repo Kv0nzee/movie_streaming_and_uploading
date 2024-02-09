@@ -1,15 +1,15 @@
 import getCurrentUser from "../actions/getCurrentUser";
 import UserCard from '../components/UserCard'
 
+import { redirect  } from "next/navigation";
 
 
 const App = async  () => {
   const currentUser = await getCurrentUser();
 
   if(!currentUser){
-    return Router.push('/auth');
-  }
-
+    return redirect('/auth');
+}
 
   return (
     <div className="flex items-center justify-center h-full">
