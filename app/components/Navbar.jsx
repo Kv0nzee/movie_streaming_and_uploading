@@ -6,6 +6,7 @@ import { BellIcon, MagnifyingGlassIcon, ChevronDownIcon } from '@heroicons/react
 import AccountMenu from './AccountMenu';
 import MobileMenu from './MobileMenu';
 import NavbarItem from './NavbarItem';
+import Image from 'next/image';
 
 const TOP_OFFSET = 66;
 
@@ -13,6 +14,7 @@ const Navbar = ({ currentUser }) => {
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,10 +31,6 @@ const Navbar = ({ currentUser }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     }
-  }, []);
-
-  const toggleAccountMenu = useCallback(() => {
-    setShowAccountMenu((current) => !current);
   }, []);
 
   const toggleMobileMenu = useCallback(() => {
@@ -63,13 +61,7 @@ const Navbar = ({ currentUser }) => {
           <div className="text-gray-200 transition cursor-pointer hover:text-gray-300">
             <BellIcon className="w-6" />
           </div>
-          <div onClick={toggleAccountMenu} className="relative flex flex-row items-center gap-2 cursor-pointer">
-            <div className="w-6 h-6 overflow-hidden rounded-md lg:w-10 lg:h-10">
-              <img src="/images/default-blue.png" alt="" />
-            </div>
-            <ChevronDownIcon className={`w-4 text-white fill-white transition ${showAccountMenu ? 'rotate-180' : 'rotate-0'}`} />
-            <AccountMenu visible={showAccountMenu} currentUser={currentUser} />
-          </div>
+            {currentUser && (<AccountMenu visible={showAccountMenu} currentUser={currentUser} />)}
         </div>
       </div>
     </nav>

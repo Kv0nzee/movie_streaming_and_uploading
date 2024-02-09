@@ -13,7 +13,6 @@ export const metadata = {
 export default async function RootLayout({ children }) {
 
   const currentUser = await getCurrentUser();
-  console.log(currentUser.name)
 
   return (
     <html lang="en">
