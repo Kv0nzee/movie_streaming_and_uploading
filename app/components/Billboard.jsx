@@ -6,13 +6,9 @@ import { InformationCircleIcon } from '@heroicons/react/24/outline';
 import PlayButton from './PlayButton';
 
 import useInfoModalStore from '../hooks/useInfoModalStore';
-import getBillboard from '../actions/getBillboard';
 
 const Billboard = ({data}) => {
   const { openModal } = useInfoModalStore();
-  
-  console.log(data)
-
 
   const handleOpenModal = useCallback(() => {
     openModal(data?.id);
