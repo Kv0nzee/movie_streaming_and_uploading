@@ -17,6 +17,9 @@ const Auth = () => {
   const [password, setPassword] = useState('');
   const [variant, setVariant] = useState('login');
   const router = useRouter();
+
+
+
   const toggleVariant = useCallback(() => {
     setVariant((currentVariant) => (currentVariant === 'login' ? 'register' : 'login'));
   }, []);
