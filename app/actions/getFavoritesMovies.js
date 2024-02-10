@@ -5,17 +5,17 @@ export default async function getFavoritesMovies(){
     try {
         const currentUser = await getCurrentUser();
 
-        const favoritesMovies = await prisma.movies.findMany({
-            where:{
-                id:{
-                    in: currentUser?.favoriteIds
-                }
+        const favoritedMovies = await prisma.movie.findMany({
+            where: {
+              id: {
+                in: currentUser?.favoriteIds,
+              }
             }
         });
         
-      return favoritesMovies;
+      return favoritedMovies;
     } catch (e) {
       console.error(e);
-      throw new Error("Error fetching billboard data");
+      throw new Error("Error fetching  data");
     }
 }
