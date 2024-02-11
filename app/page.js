@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col items-center justify-between min-h-screen">
-      <ClientOnly>
+      <ClientOnly currentUser={currentUser}>
         <Billboard data={billboard}/>
         <div className="pb-40">
           <MovieList title="Trending Now" data={moviesData} currentUser={currentUser} />

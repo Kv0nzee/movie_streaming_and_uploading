@@ -6,7 +6,8 @@ import InfoModal from "./InfoModal";
 import useInfoModalStore from '../hooks/useInfoModalStore';
 
 const ClientOnly = ({
-    children
+    children,
+    currentUser
 }) => {
     const [hasMounted, setHasMounted] = useState(false);
     const {isOpen, closeModal} = useInfoModalStore();
@@ -20,7 +21,7 @@ const ClientOnly = ({
 
     return (  
         <>
-        <InfoModal visible={isOpen} onClose={closeModal}/>
+        <InfoModal visible={isOpen} onClose={closeModal} currentUser={currentUser}/>
             {children}
         </>
     );

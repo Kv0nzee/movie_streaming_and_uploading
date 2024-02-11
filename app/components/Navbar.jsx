@@ -40,14 +40,15 @@ const Navbar = ({ currentUser }) => {
   return (
     <nav className="fixed z-20 w-full">
       <div className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${showBackground ? 'bg-zinc-900 bg-opacity-90' : ''}`}>
-        <img src="/images/logo.png" className="h-4 lg:h-7" alt="Logo" />
+        <a href='./'><Image width={100} height={100} src="/images/logo.png" className="h-4 lg:h-7" alt="Logo" /></a>
         <div className="flex-row hidden ml-8 gap-7 lg:flex">
-          <NavbarItem label="Home" active />
-          <NavbarItem label="Series" />
-          <NavbarItem label="Films" />
-          <NavbarItem label="New & Popular" />
-          <NavbarItem label="My List" />
-          <NavbarItem label="Browse by Languages" />
+          {currentUser && (
+              <div>
+                <NavbarItem label="Home" href="/"/>
+                <NavbarItem label="Profiles" href="/profiles" />
+              </div>
+          )}
+          {!currentUser && (<NavbarItem label="Login/Signup" href="/auth" />)}
         </div>
         <div onClick={toggleMobileMenu} className="relative flex flex-row items-center gap-2 ml-8 cursor-pointer lg:hidden">
           <p className="text-sm text-white">Browse</p>

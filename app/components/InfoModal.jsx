@@ -7,7 +7,7 @@ import useInfoModalStore from '../hooks/useInfoModalStore';
 import useMovie from '../hooks/useMovie';
 
 
-const InfoModal = ({ visible, onClose }) => {
+const InfoModal = ({ visible, onClose, currentUser }) => {
   const [isVisible, setIsVisible] = useState(!!visible);
 
   const { movieId } = useInfoModalStore();
@@ -44,7 +44,7 @@ const InfoModal = ({ visible, onClose }) => {
               </p>
               <div className="flex flex-row items-center gap-4">
                 <PlayButton movieId={data?.id} />
-                <FavoriteButton movieId={data?.id} />
+                <FavoriteButton movieId={data?.id} currentUser={currentUser}/>
               </div>
             </div>
           </div>
