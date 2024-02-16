@@ -10,6 +10,7 @@ import useInfoModalStore from '../hooks/useInfoModalStore';
 const Billboard = ({data}) => {
   const { openModal } = useInfoModalStore();
 
+  // Callback function to handle opening modal
   const handleOpenModal = useCallback(() => {
     openModal(data?.id);
   }, [openModal, data?.id]);
@@ -27,7 +28,7 @@ const Billboard = ({data}) => {
         <div className="flex flex-row items-center gap-3 mt-3 md:mt-4">
           <PlayButton movieId={data?.id} />
           <button
-            onClick={handleOpenModal} // Corrected onClick handler
+            onClick={handleOpenModal}  // onClick handler to open modal
             className="flex flex-row items-center w-auto px-2 py-1 text-xs font-semibold text-white transition bg-white rounded-md bg-opacity-30 md:py-2 md:px-4 lg:text-lg hover:bg-opacity-20"
           >
             <InformationCircleIcon className="w-4 mr-1 md:w-7" />

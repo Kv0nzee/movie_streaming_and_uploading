@@ -4,6 +4,7 @@ import React, { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { PlayIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 
 import FavoriteButton from './FavoriteButton';
 import useInfoModalStore from '../hooks/useInfoModalStore';
@@ -13,11 +14,12 @@ const MovieCard = ({ data, currentUser }) => {
   const router = useRouter();
   const { openModal } = useInfoModalStore();
 
+   // Function to redirect to watch page
   const redirectToWatch = useCallback(() => router.push(`/watch/${data.id}`), [router, data.id]);
 
   return (
     <div className="group bg-zinc-900 col-span relative h-[12vw]">
-      <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
+      <Image width={100} height={100} onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
         cursor-pointer
         object-cover
         transition
@@ -47,7 +49,7 @@ const MovieCard = ({ data, currentUser }) => {
         group-hover:translate-x-[2vw]
         group-hover:opacity-100
       ">
-        <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
+        <Image width={100} height={100} onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
           cursor-pointer
           object-cover
           transition

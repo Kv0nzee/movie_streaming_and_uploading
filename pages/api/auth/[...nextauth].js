@@ -8,14 +8,17 @@ import prisma from '../../../app/lib/prismadb';
 
 export const AuthOptions = {
     providers: [
+        // GitHub authentication provider
         GithubProvider({
           clientId: process.env.GITHUB_ID || '',
           clientSecret: process.env.GITHUB_SECRET || '',
         }),
+        // Google authentication provider
         GoogleProvider({
           clientId: process.env.GOOGLE_CLIENT_ID || '',
           clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
         }),
+        // Credentials-based authentication provider
         Credentials({
           id: 'credentials',
           name: 'Credentials',
@@ -29,6 +32,7 @@ export const AuthOptions = {
               type: 'password'
             }
           },
+           // Authorization function for credentials-based authentication
           async authorize(credentials) {
             if (!credentials?.email || !credentials?.password) {
               throw new Error('Email and password required');

@@ -6,13 +6,18 @@ import getFavoritesMovies from './actions/getFavoritesMovies';
 import Billboard from './components/Billboard';
 import MovieList from './components/MovieList';
 import ClientOnly from "./components/ClientOnly"
+import { redirect } from 'next/navigation';
 
 export default async function Home() {
   const currentUser = await getCurrentUser();
-  const billboard = await  getBillboard();
+  const billboard = await getBillboard();
   const moviesData = await getAllMovies();
   const myListData = await getFavoritesMovies();
 
+  //route-guard
+  if(!currentUser){
+    return redirect('/auth');
+  }  
 
   return (
     <main className="flex flex-col items-center justify-between min-h-screen">

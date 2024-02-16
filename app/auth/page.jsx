@@ -3,7 +3,7 @@
 import axios from 'axios';
 import { useCallback, useState } from 'react';
 import { NextPageContext } from 'next';
-import { getSession, signIn } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
@@ -12,13 +12,12 @@ import Input from '../components/Input';
 
 
 const Auth = () => {
+  // State variables for email, name, password, and variant (login/register)
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [variant, setVariant] = useState('login');
   const router = useRouter();
-
-
 
   const toggleVariant = useCallback(() => {
     setVariant((currentVariant) => (currentVariant === 'login' ? 'register' : 'login'));
@@ -29,8 +28,8 @@ const Auth = () => {
         await signIn('credentials', {
           email,
           password,
-          redirect: false,
-          callbackUrl: '/'
+          redirect: false,// Prevent automatic redirection after sign-in
+          callbackUrl: '/'// Redirect URL after successful sign-in
         });
   
         router.push('/profiles');

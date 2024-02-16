@@ -43,8 +43,8 @@ const Navbar = ({ currentUser }) => {
         <a href='./'><Image width={100} height={100} src="/images/logo.png" className="h-4 lg:h-7" alt="Logo" /></a>
         <div className="flex-row hidden ml-8 gap-7 lg:flex">
           {currentUser && (
-              <div>
-                <NavbarItem label="Home" href="/"/>
+              <div className='flex gap-x-4'>
+                <NavbarItem label="Home " href="/"/>
                 <NavbarItem label="Profiles" href="/profiles" />
               </div>
           )}
