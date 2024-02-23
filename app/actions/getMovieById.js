@@ -7,9 +7,7 @@ export default async function getMovieById( movieId ){
             id: movieId
         }
       });
-      console.log(movie);
-
-
+      
       return movie;
     } catch (e) {
       console.error(e);
