@@ -27,23 +27,12 @@ const SearchClient = () => {
         return () => clearTimeout(timer);
     }, [name, setName]);
 
-
-    // const query = {
-    //     title: debouncedValue
-    // };
-
-    // const url = qs.stringifyUrl({
-    //     url: '/search',
-    //     query: query
-    // });
-    // router.push(url);
-
     return ( 
         <div className="pt-20">
             <Input
                 id="name"
                 type="text"
-                label="Search Movie Name"
+                label="Search"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
             />
