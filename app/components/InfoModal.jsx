@@ -55,7 +55,7 @@ const InfoModal = ({ visible, onClose, currentUser }) => {
                 New
               </p>
               <p className="text-lg text-white">
-                {data?.duration}
+                {data?.duration} minutes
               </p>
               <p className="text-lg text-white">
                 {data?.genre}

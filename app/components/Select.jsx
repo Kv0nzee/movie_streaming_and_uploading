@@ -1,17 +1,21 @@
 import React from 'react';
 
-const Input = ({ id, onChange, value, label, type, disabled }) => {
+const Select = ({ id, onChange, value, options, label, disabled }) => {
   return (
     <div className="relative">
-      <input
+      <select
         onChange={onChange}
         value={value}
-        type={type}
         id={id}
         className={`${disabled ? "cursor-not-allowed" : ""} block w-full px-6 pt-6 pb-1 text-white rounded-md appearance-none text-md bg-neutral-700 focus:outline-none focus:ring-0 peer invalid:border-b-1`}
-        placeholder=" " 
         disabled={disabled}
-      />
+      >
+        {options.map((option, index) => (
+          <option key={index} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
       <label 
         htmlFor={id} 
         className="
@@ -35,4 +39,4 @@ const Input = ({ id, onChange, value, label, type, disabled }) => {
   );
 };
 
-export default Input;
+export default Select;

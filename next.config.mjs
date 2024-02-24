@@ -8,6 +8,8 @@ const nextConfig = {
             'upload.wikimedia.org',
             'uhdtv.io',
             'download.blender.org',
+            'm.media-amazon.com',
+            'www.gardenofmemory.net'
         ]
     }
 };

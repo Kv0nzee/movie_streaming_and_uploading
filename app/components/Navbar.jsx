@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { BellIcon, MagnifyingGlassIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import { ArrowUpTrayIcon, MagnifyingGlassIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 
 import AccountMenu from './AccountMenu';
 import MobileMenu from './MobileMenu';
@@ -59,9 +59,9 @@ const Navbar = ({ currentUser }) => {
           <a href='/search' className="text-gray-200 transition cursor-pointer hover:text-gray-300">
             <MagnifyingGlassIcon className="w-6" />
           </a>
-          <div className="text-gray-200 transition cursor-pointer hover:text-gray-300">
-            <BellIcon className="w-6" />
-          </div>
+          <a href='/upload' className="text-gray-200 transition cursor-pointer hover:text-gray-300">
+            <ArrowUpTrayIcon className="w-6" />
+          </a>
             {currentUser && (<AccountMenu visible={showAccountMenu} currentUser={currentUser} />)}
         </div>
       </div>

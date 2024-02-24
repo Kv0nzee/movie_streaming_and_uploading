@@ -13,7 +13,7 @@ interface Props{
 
 const Search = async ({ searchParams } : Props) => {
     const searchMoviesList = await getMoviesBySearch(searchParams.search); 
-    const currentUser = getCurrentUser();
+    const currentUser = await getCurrentUser();
 
      //route-guard
   if(!currentUser){
