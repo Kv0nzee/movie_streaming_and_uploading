@@ -19,10 +19,11 @@ const UploadClient = () => {
     const [disabled, setDisabled] = useState(false);
 
     const genreOptions = [
-        { value: 'Adventure', label: 'Adventure' },
+        { value: 'Adventure', label:'Adventure' },
         { value: 'Comedy', label: 'Comedy' },
         { value: 'Action', label: 'Action' },
-        { value: 'Sci-Fi', label: 'Sci-Fi'}
+        { value: 'Sci-Fi', label: 'Sci-Fi'},
+        { value: 'Thriller', label: 'Thriller'}
     ];
 
     const router = useRouter();

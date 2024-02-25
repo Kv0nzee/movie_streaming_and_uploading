@@ -18,6 +18,11 @@ export default async function Home() {
   const adventureMovies = await getMovieByGenre("Adventure");
   const actionMovies = await getMovieByGenre("Action");
   const scifiMovies = await getMovieByGenre("Sci-Fi");
+  const thrillerMovies = await getMovieByGenre("Thriller");
+
+// Create a Set to automatically remove duplicates
+const uniqueGenres = Array.from(new Set(moviesData.map(movie => movie.genre)));
+
   //route-guard
   if(!currentUser){
     return redirect('/auth');
@@ -30,10 +35,9 @@ export default async function Home() {
         <div className="pb-40">
           <MovieList title="Trending Now" data={moviesData} currentUser={currentUser} />
           <MovieList title="My List" data={myListData} currentUser={currentUser} />
-          <MovieList title="Comedy" data={comedyMovies} currentUser={currentUser} />
-          <MovieList title="Adventure" data={adventureMovies} currentUser={currentUser} />
-          <MovieList title="Action" data={actionMovies} currentUser={currentUser} />
-          <MovieList title="Sci-Fi" data={scifiMovies} currentUser={currentUser} />
+          {uniqueGenres.map( async(genre, index) => (
+            <MovieList key={index} title={genre} data={await getMovieByGenre(genre)} currentUser={currentUser} />
+          ))}
         </div>
       </ClientOnly>
     </main>

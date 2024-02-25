@@ -4,12 +4,11 @@ const nextConfig = {
         domains: [
             'avatars.githubusercontent.com',
             'lh3.googleusercontent.com',
-            'mango.blender.org',
             'upload.wikimedia.org',
-            'uhdtv.io',
-            'download.blender.org',
             'm.media-amazon.com',
-            'www.gardenofmemory.net'
+            'www.gardenofmemory.net',
+            'c4.wallpaperflare.com',
+            'wallpapers.com'
         ]
     }
 };
