@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import qs from "query-string";
 
 import Input from "../components/Input";
+import VideoUpload from '../components/VideoUpload';
 import Select from "../components/Select";
 import axios from "axios";
 
@@ -68,14 +68,18 @@ const UploadClient = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 disabled={disabled}
             />
-             <Input
+            <VideoUpload
+                value={videoUrl}
+                setVideoUrl={setVideoUrl}
+            />
+             {/* <Input
                 id="videoUrl"
                 type="text"
                 label="Video Url"
                 value={videoUrl}
                 onChange={(e) => setVideoUrl(e.target.value)}
                 disabled={disabled}
-            />
+            /> */}
              <Input
                 id="thumbnailUrl"
                 type="text"

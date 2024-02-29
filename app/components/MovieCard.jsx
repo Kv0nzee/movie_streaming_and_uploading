@@ -32,6 +32,7 @@ const MovieCard = ({ data, currentUser }) => {
         w-full
         h-[12vw]
       " />
+      <h2 className='absolute text-sm text-gray-200 bottom-2 left-5'>{data.title}</h2>
       <div className="
         opacity-0
         absolute

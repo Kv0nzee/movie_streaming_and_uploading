@@ -8,7 +8,8 @@ const nextConfig = {
             'm.media-amazon.com',
             'www.gardenofmemory.net',
             'c4.wallpaperflare.com',
-            'wallpapers.com'
+            'wallpapers.com',
+            'res.cloudinary.com'
         ]
     }
 };

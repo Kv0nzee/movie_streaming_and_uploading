@@ -26,8 +26,6 @@ export async function GET(
       }
     });
 
-    console.log(movie);
-
     return NextResponse.json(movie);
 
   } catch (error) {
