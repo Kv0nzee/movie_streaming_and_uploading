@@ -39,7 +39,7 @@ const Navbar = ({ currentUser }) => {
   return (
     <nav className="fixed z-20 w-full">
       <div className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${showBackground ? 'bg-zinc-900 bg-opacity-90' : ''}`}>
-        <a href='./'><Image width={100} height={100} src="/images/logo.png" className="h-4 lg:h-7" alt="Logo" /></a>
+        <a href='./'><Image width={100} height={100} src="/images/logo.png" className="object-cover h-4 lg:h-7" alt="Logo" /></a>
         <div className="flex-row hidden ml-8 gap-7 lg:flex">
           {currentUser && (
               <div className='flex gap-x-4'>
