@@ -41,4 +41,3 @@ const Billboard = ({data}) => {
 }
 
 export default Billboard;
-   

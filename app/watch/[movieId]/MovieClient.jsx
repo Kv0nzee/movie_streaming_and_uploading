@@ -13,7 +13,7 @@ const MovieClient = ({ data }) => {
                 <span className="font-light">Watching:</span> {data?.title}
                 </p>
             </nav>
-            <video className="w-full h-full" autoPlay controls src={data?.videoUrl}></video>
+            <video className="w-full h-full"  controls src={data?.videoUrl}></video>
         </div>
      );
 }
