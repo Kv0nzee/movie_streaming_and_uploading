@@ -14,11 +14,6 @@ export default async function Home() {
   const billboard = await getBillboard();
   const moviesData = await getAllMovies();
   const myListData = await getFavoritesMovies();
-  const comedyMovies = await getMovieByGenre("Comedy");
-  const adventureMovies = await getMovieByGenre("Adventure");
-  const actionMovies = await getMovieByGenre("Action");
-  const scifiMovies = await getMovieByGenre("Sci-Fi");
-  const thrillerMovies = await getMovieByGenre("Thriller");
 
 // Create a Set to automatically remove duplicates
 const uniqueGenres = Array.from(new Set(moviesData.map(movie => movie.genre)));

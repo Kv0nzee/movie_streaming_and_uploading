@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import getCurrentUser from "../../actions/getCurrentUser";
 import getMovieById from '../../actions/getMovieById';
 
