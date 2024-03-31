@@ -80,6 +80,10 @@ const UploadClient = () => {
                 onChange={(e) => setVideoUrl(e.target.value)}
                 disabled={disabled}
             /> */}
+            <h4 className="text-sm text-center text-white md:text-md"> These were the only links that worked:
+            upload.wikimedia.org,
+            m.media-amazon.com,
+            res.cloudinary.com</h4>
              <Input
                 id="thumbnailUrl"
                 type="text"
